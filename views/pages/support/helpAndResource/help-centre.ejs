@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../../partials/head') %>
+    <link rel="stylesheet" href="/css/pages/help-center-glossary.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../../partials/header') %>
+    </header>
+    <main>
+        <div class="container help-centre-container">
+            <% data.forEach(function(item,i) {%>
+            <h1>
+                <% if(lang === 'en') { %>
+                <%= item.text_en %>
+                <% } else if(lang === 'vi') { %>
+                <%= item.text_vi %>
+                <% } else if(lang === 'cn') { %>
+                <%= item.text_cn %>
+                <% } else { %>
+                <%= item.text_en %>
+                <% } %>
+            </h1>
+            <% item.question.forEach(function(question,index) { %>
+            <div class="faq-accordion mb-3">
+                <div class="collapse-box" data-toggle="collapse" data-target="#collapse<%= index %><%= i %>"
+                    aria-expanded="false" aria-controls="collapse<%= index %><%= i %>">
+                    <% if(lang === 'en') { %>
+                    <%= question.question_en %>
+                    <% } else if(lang === 'vi') { %>
+                    <%= question.question_vi %>
+                    <% } else if(lang === 'cn') { %>
+                    <%= question.question_cn %>
+                    <% } else { %>
+                    <%= question.question_en %>
+                    <% } %>
+                    <span><i class="fa fa-chevron-down"></i></span>
+                </div>
+                <div class="collapse" id="collapse<%= index %><%= i %>" aria-controls="collapse<%= index %><%= i %>">
+                    <div class="card card-body panel-content">
+                        <% if(lang === 'en') { %>
+                        <%- question.answer_en %>
+                        <% } else if(lang === 'vi') { %>
+                        <%- question.answer_vi %>
+                        <% } else if(lang === 'cn') { %>
+                        <%- question.answer_cn %>
+                        <% } else { %>
+                        <%- question.answer_en %>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            <% }) %>
+            <!-- input Form -->
+            <div class="faq-search__container">
+                <input class="faq-input faq-search-input" type="text" placeholder="Type your question here">
+                <div class="faq-result"></div>
+                <div class="faq-tips">
+                    <p>
+                        <b><%- __('How do I get help?') %></b><br>
+                        <%- __('Simply type your question in the search box above to get instant answers.<br>For better results, type more than one word and use a question phrasing. If you do not find a match try phrasing your question differently not a strict coincidence expected occurrence of each of the words separated by a space.') %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

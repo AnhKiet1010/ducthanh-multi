@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ⚡ lang="en">
+
+<head>
+    <%- include ('../../../partials/head') %>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <%- include ('../../../partials/header') %>
+    </header>
+    <main style="background-color: #384147;margin-top: 120px;">
+        <div class="calendar container bg-light">
+            <h1 class="pt-4 pb-2">Forex Calendar</h1>
+            <amp-iframe width="1920" height="720" title="Economic Calendar" layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-popups" allowfullscreen frameborder="0"
+                src="https://www.mql5.com/en/economic-calendar/widget?mode=2">
+                <amp-img src="https://cdn.pixabay.com/photo/2020/05/30/00/54/options-5237248_1280.jpg" placeholder
+                    width="1000" height="500"></amp-img>
+            </amp-iframe>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

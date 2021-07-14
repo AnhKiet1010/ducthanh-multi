@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../partials/head') %>
+    <link rel="stylesheet" href="/css/partials/list-sidebar.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../partials/header') %>
+    </header>
+    <main>
+        <div class="edu-overview-top text-center">
+            <div class="edu-overview-top-content">
+                <h1 class="text-white"><%= __('Regional Partnerships') %></h1>
+                <p><%= __('Leverage off the BTF brand and products with your local knowledge and connections to start regional offices in high growth areas.') %>
+                </p>
+                <button type="button" class="btn btn-success btn-lg">CONTACT US</button>
+            </div>
+        </div>
+        <div class="edu-overview-content">
+            <%- include ('../../partials/right-sidebar-btf') %>
+            <div class="page-content bgcolor1">
+                <div class="page-first-text" style="font-size: 1.5em; font-weight: 800;margin-bottom: 1em;">
+                    <%= __('We are one of the largest Forex CFD provider by volume with some of the tightest spreads and best trading conditions for traders globally. Our tight spreads offering will be the driving force behind our regional partner’s success.') %>
+                </div>
+                <p style="font-size: 1em; font: 100;">
+                    <%= __('We are interested in reviewing offers from experienced forex operators, financial services providers, licensed forex dealers, and large introducing brokers.') %>
+                </p>
+                <div class="page-content bgcolor2">
+                    <h1><%= __('What we offer our regional partners:') %></h1>
+                    <div class="pre-image-item"><%= __('A market leading Raw Pricing offering to attract clients') %>
+                    </div>
+                    <div class="pre-image-item"><%= __('Hybrid revenue share remuneration model') %></div>
+                    <div class="pre-image-item"><%= __('Proven and reliable trading technology') %></div>
+                    <div class="pre-image-item"><%= __('Staff training in all areas of the business') %></div>
+                    <div class="pre-image-item"><%= __('Leverage off our global brand') %></div>
+                </div>
+                <div class="page-content bgcolor1">
+                    <h1><%= __('How Does a Regional Partnership Work?') %></h1>
+                    <br>
+                    <p><%= __('Regional partners are responsible for the sales, marketing, and compliance for their region/country. VGF is able to assist regional partners in growing their business by providing full support and training.') %>
+                    </p>
+                    <br>
+                    <p><%= __('We have a proven formula for attracting clients globally so we are confident that we can help our regional partners be some of the best market leaders in their region and country as well.') %>
+                    </p>
+                </div>
+            </div>
+    </main>
+    <footer>
+        <%- include ('../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

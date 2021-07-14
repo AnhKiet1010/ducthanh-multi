@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../partials/head') %>
+    <link rel="stylesheet" href="/css/pages/about.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../partials/header') %>
+    </header>
+    <main>
+        <!-- <div class="head-fr-video">
+            <div class="head-video">
+                <video autoplay loop="loop" controls class="video-ai" muted>
+                    <source src="/video/introduce-vgf.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div> -->
+        <div class="text-center">
+            <div class="text-center" style="background-color: #0d0b39;padding: 5em 0;">
+                <img src="/images/vgf-logo-white.png" alt="vgf-logo" width="400px">
+                <p style="font-size: 1.7em;font-size: 1.5em;
+                text-shadow: 0px 1px 2px #24ff00;color: #fff;padding: 1em 0;
+                font-weight: 700;"><%- __('Comprehensive financial investment education group') %></p>
+                <button type="button" class="btn btn-success"><%- __('Contact Us') %></button>
+            </div>
+        </div>
+        <div class="vgf-service">
+            <div data-v-e89efc46="" class="title"><em data-v-e89efc46=""></em><span data-v-e89efc46=""
+                    class="pr-2 pl-2">
+                    <h2 style="color: #f8bc00"><%- __('Our Services') %></h2>
+                </span><em data-v-e89efc46=""></em>
+            </div>
+            <div class="list-shape-1">
+                <div class="shape">
+                    <a href="#"><i class="fas fa-dot-circle" style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Foreign Exchange') %></a>
+                </div>
+                <div class="shape">
+                    <a href="/services/finance_training"><i class="fas fa-dot-circle"
+                            style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Training Course') %></a>
+                </div>
+                <div class="shape">
+                    <a href="/services/copy_trade"><i class="fas fa-dot-circle"
+                            style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Copy Trade') %></a>
+                </div>
+            </div>
+            <div class="list-shape-1 list2">
+                <div class="shape">
+                    <a href="/services/portfolio_management"><i class="fas fa-dot-circle"
+                            style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Portfolio <br> Management</a>') %>
+                </div>
+                <div class="shape">
+                    <a href="/services/AI_signal"><i class="fas fa-dot-circle"
+                            style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Technology') %></a>
+                </div>
+                <div class="shape">
+                    <a href="/services/capital_markets"><i class="fas fa-dot-circle"
+                            style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Capital Market') %></a>
+                </div>
+                <div class="shape">
+                    <a href="#"><i class="fas fa-dot-circle" style="font-size: .5em;margin-right: 1.5em;"></i>
+                        <%- __('Crypto') %></a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

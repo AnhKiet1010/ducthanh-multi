@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../partials/head') %>
+    <link rel="stylesheet" href="/css/partials/list-sidebar.css">
+    <link rel="stylesheet" href="/css/pages/education_overview.css">
+    <link rel="stylesheet" href="/css/pages/linceses.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../partials/header') %>
+    </header>
+    <main>
+        <div class="edu-overview-top text-center">
+            <div class="edu-overview-top-content">
+                <h1 class="text-white"><%= __('区块链牌照申请') %></h1>
+                </p>
+                <a href="/contact" class="btn btn-success btn-lg mb-3">CONTACT US</a>
+            </div>
+        </div>
+        <div class="edu-overview-navbar">
+            <div class="menu-item active">
+                <a href="/services/vgf/licenses/1"><%= __('区块链牌照申请') %></a>
+            </div>
+            <div class="menu-item">
+                <a href="/services/vgf/licenses/2"><%= __('金融牌照申请') %></a>
+            </div>
+            <div class="menu-item">
+                <a href="/services/vgf/licenses/3"><%= __('监管查询') %></a>
+            </div>
+        </div>
+        <div class="container wrap-licenses mt-4 mb-4">
+            <% data.forEach(function(item) { %>
+            <div class="license">
+                <div class="text">
+                    <% if(lang === 'cn') { %>
+                    <h1><%- item.title_cn %></h1>
+                    <% } else if(lang === 'vi') { %>
+                    <h1><%- item.title_vi %></h1>
+                    <% } else { %>
+                    <h1><%- item.title_en %></h1>
+                    <% } %>
+                    <span style="color: rgb(66, 165, 246);">——</span>
+                    <% if(lang !== 'en') { %>
+                    <h2><%- item.title_en %></h2>
+                    <% } %>
+                    <a class="btn btn-success" href="/services/vgf/licenses/1/<%= item._id %>">Learn More</a>
+                </div>
+                <div class="img">
+                    <img src="/upload/<%- item.image %>">
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

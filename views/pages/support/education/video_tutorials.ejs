@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../../partials/head') %>
+    <link rel="stylesheet" href="/css/partials/list-sidebar.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../../partials/header') %>
+    </header>
+    <main>
+        <div class="edu-overview-top text-center">
+            <div class="edu-overview-top-content">
+                <h1 class="text-white"><%= __('Video Tutorials') %></h1>
+                <p><%= __('VGF offers a number of educational videos to help forex traders who are new to using the MetaTrader 4 platform. Our instructional videos will give you an overview as to how to install MetaTrader 4, use the market watch, navigator, trade terminal and place different order types') %>.
+                </p>
+                <button type="button" class="btn btn-success btn-lg">START TRADING</button>
+            </div>
+        </div>
+        <div class="edu-overview-navbar">
+            <div class="menu-item"><a href="/support/education/education_overview"><%= __('Education Overview') %></a>
+            </div>
+            <div class="menu-item"><a href="/support/education/advantage_of_forex"><%= __('Advantages of Forex') %></a>
+            </div>
+            <div class="menu-item "><a href="/support/education/advantage_of_cfds"><%= __('Advantages of CFDs') %></a>
+            </div>
+            <div class="menu-item active"><a href="/support/education/video_tutorials"><%= __('Video Tutorials') %></a>
+            </div>
+            <div class="menu-item "><a href="/support/education/web_tv"><%= __('Web TV') %></a></div>
+        </div>
+        <div class="container mt-4 mb-4">
+            <div class="row">
+                <div class="col-lg-4 video-frame">
+                    <iframe width="100%" height="270px" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen="" src="https://www.youtube.com"></iframe>
+                    <div class="description"><span style="font-size: 3em; color: Tomato; margin-right: 15px;"><i
+                                class="fa fa-play-circle"></i></span><span class="text">Using the MetaTrader 4 Trade
+                            Terminal</span></div>
+                </div>
+                <div class="col-lg-4 video-frame">
+                    <iframe width="100%" height="270px" frameborder="0" allow="autoplay; encrypted-media"
+                        allowfullscreen="" src="https://www.youtube.com"></iframe>
+                    <div class="description"><span style="font-size: 3em; color: Tomato; margin-right: 15px;"><i
+                                class="fa fa-play-circle"></i></span><span class="text">Using the MetaTrader 4 Trade
+                            Terminal</span></div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

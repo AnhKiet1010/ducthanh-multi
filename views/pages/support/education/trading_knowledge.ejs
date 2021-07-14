@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" ⚡>
+
+<head>
+    <%- include ('../../../partials/head') %>
+    <link rel="stylesheet" href="/css/pages/trading_knowledge.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../../partials/header') %>
+    </header>
+    <main>
+        <div class="static__bannertext flx">
+            <div class="content-flx d-flex" style="margin: 0 auto">
+                <span>
+                    <amp-img src="/images/note.png" width="108" height="108"></amp-img>
+                </span>
+                <div class="site__title">
+                    <span><%= __('Information Hub for') %></span><%= __('Serious Traders') %>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg mb-5">
+            <div class="list-block">
+                <ul class="nav justify-content-center site__nav">
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            href="/support/education/trading_knowledge/1/1"><%= __('Company News') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                            href="/support/education/trading_knowledge/2/1"><%= __('Fundamental Analysis') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="/support/education/trading_knowledge/3/1"><%= __('Technical Analysis') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/support/education/trading_knowledge/4/1"><%= __('Education') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                            href="/support/education/trading_knowledge/5/1"><%= __('Trading Data') %></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/support/education/trading_knowledge/6/1"><%= __('About') %></a>
+                    </li>
+                </ul>
+                <div class="row list mt-4" style="margin-right: 0px;">
+                    <div class="col-lg-8">
+                        <header class="page-header">
+                            <h1 class="page-title"><%= __('Category') %>:
+                                <%= currentCategory === '1' ? "Company News": (currentCategory === '2') ? "Fundamental Analysis" : (currentCategory === '3') ? "Technical Analysis" : (currentCategory === '4') ? "Education" : (currentCategory === '5') ? "Trading Data" : (currentCategory === '6') ? "About": "" %>
+                            </h1>
+                            <div class="archive__view--mode">
+                                <span class="list_view">
+                                    <span class="ti-list"></span>
+                                    List view
+                                </span>
+                                <span class="grid_view active">
+                                    <span class="ti-layout-grid2"></span>
+                                    Grid View
+                                </span>
+                            </div>
+                        </header>
+                        <div class="row">
+                            <% data.forEach(function(item) {%>
+                            <div class="col-sm-6">
+                                <div class="card news-card" style="width: 100%;">
+                                    <div class="post_date">
+                                        <span class="year"><%= item.created %></span>
+                                    </div>
+                                    <img src="/upload/<%= item.image %>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <div class="pos_infos">
+                                            <header class="entry-header">
+                                                <h2 class="entry-title"><a
+                                                        href="/support/education/posts/<%= item._id %>">
+                                                        <% if(lang === 'en') { %>
+                                                        <%= item.title_en %>
+                                                        <% } else if(lang === 'vi') { %>
+                                                        <%= item.title_vi %>
+                                                        <% } else if(lang === 'cn') { %>
+                                                        <%= item.title_cn %>
+                                                        <% } else { %>
+                                                        <%= item.title_en %>
+                                                        <% } %>
+                                                    </a>
+                                                </h2>
+                                            </header>
+                                            <div class="entry-details">
+                                                <span class="author"><i class="fa fa-user"></i>VGF</span>
+                                                <span class="no_of_cmnt"><i class="fa fa-comments"></i>No Comments
+                                                </span>
+                                                <span class="tag"><i class="fa fa-tags"></i></span>
+                                            </div>
+
+                                            <div class="entry-content">
+                                                <p> <% if(lang === 'en') { %>
+                                                    <%= item.subtitle_en %>
+                                                    <% } else if(lang === 'vi') { %>
+                                                    <%= item.subtitle_vi %>
+                                                    <% } else if(lang === 'cn') { %>
+                                                    <%= item.subtitle_cn %>
+                                                    <% } else { %>
+                                                    <%= item.subtitle_en %>
+                                                    <% } %> …</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
+                        <small class="d-block mt-3 text-center mb-3">
+                            <nav>
+                                <% if(pages > 0) { %>
+                                <ul class="pagination">
+                                    <li class="page-item <%= current === "1" ? "disabled" : "" %>" aria-disabled="true"
+                                        aria-label="« Previous">
+                                        <a class="page-link" href="/support/news/<%= Number(current) - 1 %>">‹</a>
+                                    </li>
+                                    <% for(var i = 1; i <= pages; i++) { %>
+                                    <li class="page-item <%= i === Number(current) ? "active" : "" %>">
+                                        <a class="page-link" href="/support/news/<%= i %>"><%= i %></a>
+                                    </li>
+                                    <% } %>
+                                    <li class="page-item <%= Number(current) === pages ? "disabled" : "" %>"
+                                        aria-disabled="true" aria-label="Next ››">
+                                        <a class="page-link" href="/support/news/<%= Number(current) + 1 %>">›</a>
+                                    </li>
+                                </ul>
+                                <% } %>
+                            </nav>
+                        </small>
+                    </div>
+                    <div class="col-lg-4">
+                        <aside id="recent-posts-2" class="widget widget_recent_entries">
+                            <h3 class="widget-title pb-2"><%= __('Recent Posts') %></h3>
+                            <ul class="recentPost">
+                                <% recentPost.forEach(function(item) { %>
+                                <li>
+                                    <a href="/support/education/posts/<%= item._id %>">
+                                        <% if(lang === 'en') { %>
+                                        <%= item.title_en %>
+                                        <% } else if(lang === 'vi') { %>
+                                        <%= item.title_vi %>
+                                        <% } else if(lang === 'cn') { %>
+                                        <%= item.title_cn %>
+                                        <% } else { %>
+                                        <%= item.title_en %>
+                                        <% } %>
+                                    </a>
+                                    <div class="post-date">
+                                        <%= item.created %>
+                                    </div>
+                                </li>
+                                <% }) %>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

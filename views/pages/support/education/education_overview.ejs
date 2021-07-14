@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../../partials/head') %>
+    <link rel="stylesheet" href="/css/partials/list-sidebar.css">
+    <link rel="stylesheet" href="/css/pages/education_overview.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../../partials/header') %>
+    </header>
+    <main>
+        <div class="edu-overview-top text-center">
+            <div class="edu-overview-top-content">
+                <h1 class="text-white"><%= __('Education Overview') %></h1>
+                <p><%= __('Experience fast execution, tight spreads and unrestricted trading conditions on the award-winning MetaTrader 4 platform') %>
+                </p>
+                <button type="button" class="btn btn-success btn-lg">START TRADING</button>
+            </div>
+        </div>
+        <div class="edu-overview-navbar">
+            <div class="menu-item active"><a
+                    href="/support/education/education_overview"><%= __('Education Overview') %></a>
+            </div>
+            <div class="menu-item"><a href="/support/education/advantage_of_forex"><%= __('Advantages of Forex') %></a>
+            </div>
+            <div class="menu-item"><a href="/support/education/advantage_of_cfds"><%= __('Advantages of CFDs') %></a>
+            </div>
+            <div class="menu-item "><a href="/support/education/video_tutorials"><%= __('Video Tutorials') %></a></div>
+            <div class="menu-item "><a href="/support/education/web_tv"><%= __('Web TV') %></a></div>
+        </div>
+        <div class="edu-overview-content">
+            <%- include ('../../../partials/right-sidebar') %>
+            <div class="page-content bgcolor1">
+                <h1><%= __('Getting Started') %></h1>
+                <p><%= __('Learn general concepts about the Forex (foreign exchange) market and become familiar with some of the basics of forex. Begin your journey into forex and understand the way in which the forex market operates, the basics of technical and fundamental analysis and what influences the forex market') %>.
+                </p>
+                <a class="btn btn-success" href="#" target="_blank">Learn
+                    More</a>
+            </div>
+            <div class="page-content bgcolor2">
+                <h1><%= __('Advantages of Forex') %></h1>
+                <p>
+                    <%= __('Learn about the many benefits of trading the forex market and discover why the forex market is one of the last true arenas of fair market competition and genuine price discovery') %>.
+                </p>
+                <a class="btn btn-success" href="#">Learn More</a>
+            </div>
+            <div class="page-content bgcolor1">
+                <h1><%= __('Advantages of CFDs') %>.</h1>
+                <p><%= __('Learn about the many benefits of trading Index CFDs and Discover why the Index CFD trading market is so popular') %>.
+                </p>
+                <a class="btn btn-success" href="#">Learn More</a>
+            </div>
+            <div class="page-content bgcolor2">
+                <h1><%= __('Video tutorials') %></h1>
+                <p><%= __('Watch some of our educational videos to help you get started in forex. Our educational videos are designed for traders of all levels and will provide a step by step guide on how to use our trading platforms. Many common platform questions are answered in our video tutorials') %>.
+                </p>
+                <a class="btn btn-success" href="#">Learn More</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

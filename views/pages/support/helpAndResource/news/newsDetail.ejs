@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html ⚡ lang="en">
+
+<head>
+    <%- include ('../../../../partials/head') %>
+    <link rel="stylesheet" href="/css/pages/news.css">
+</head>
+
+<body style="background-color: #eee;">
+    <header>
+        <%- include ('../../../../partials/header') %>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row top-category-news">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="item">
+                        <a href="/news/search/1/1" class="item-img-wrapper">
+
+                            <% if(lang === 'cn') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn_ko55ow.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn_ko55ow.jpg"
+                                    alt="Tin Forex" class="thumb">
+                            </div>
+                            <% } else if(lang === 'vi') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi_h5cvp8.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi_h5cvp8.jpg"
+                                    alt="Tin Forex" class="thumb">
+                            </div>
+                            <% } else { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436968/news-en_lkfsf4.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436968/news-en_lkfsf4.jpg"
+                                    alt="Tin Forex" class="thumb">
+                            </div>
+                            <% } %>
+                        </a>
+                        <div class="top-content">
+                            <a href="/news/search/1/1">
+                                <h4 class="cat-name"><%= __('Tin Forex') %></h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="item">
+                        <a href="/news/search/2/1" class="item-img-wrapper">
+                            <% if(lang === 'cn') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-1_npvzyz.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-1_npvzyz.jpg"
+                                    alt="Tin hàng hóa" class="thumb"></div>
+                            <% } else if(lang === 'vi') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436970/news-vi-1_iws9ga.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436970/news-vi-1_iws9ga.jpg"
+                                    alt="Tin hàng hóa" class="thumb"></div>
+                            <% } else { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436969/news-en-1_bzwd66.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436969/news-en-1_bzwd66.jpg"
+                                    alt="Tin hàng hóa" class="thumb"></div>
+                            <% } %>
+
+                        </a>
+                        <div class="top-content">
+                            <a href="/news/search/2/1">
+                                <h4 class="cat-name"><%= __('Tin Hàng Hóa') %></h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="item">
+                        <a href="/news/search/3/1" class="item-img-wrapper">
+                            <% if(lang === 'cn') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-2_xzwbkb.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-2_xzwbkb.jpg"
+                                    alt="Tin kinh tế thế giới" class="thumb"></div>
+                            <% } else if(lang === 'vi') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi-2_xplg6e.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi-2_xplg6e.jpg"
+                                    alt="Tin kinh tế thế giới" class="thumb"></div>
+                            <% } else { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436969/news-en-2_behspp.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436969/news-en-2_behspp.jpg"
+                                    alt="Tin kinh tế thế giới" class="thumb"></div>
+                            <% } %>
+
+                        </a>
+                        <div class="top-content">
+                            <a href="/news/search/3/1">
+                                <h4 class="cat-name"><%= __('Tin Kinh Tế Thế Giới') %></h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="item">
+                        <a href="/news/search/4/1" class="item-img-wrapper">
+                            <% if(lang === 'cn') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-3_pvwfyc.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436968/news-cn-3_pvwfyc.jpg"
+                                    alt="Đời sống tài chính " class="thumb"></div>
+                            <% } else if(lang === 'vi') { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi-3_jawpyl.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596436969/news-vi-3_jawpyl.jpg"
+                                    alt="Đời sống tài chính " class="thumb"></div>
+                            <% } else { %>
+                            <div style="background: url(https://res.cloudinary.com/vgf/image/upload/v1596437996/news-en-3_dfvzot.jpg);background-size: cover;"
+                                class="thumbWrap">
+                                <img src="https://res.cloudinary.com/vgf/image/upload/v1596437996/news-en-3_dfvzot.jpg"
+                                    alt="Đời sống tài chính " class="thumb"></div>
+                            <% } %>
+
+                        </a>
+                        <div class="top-content">
+                            <a href="/news/search/4/1">
+                                <h4 class="cat-name"><%= __('Đời Sống Tài Chính') %></h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row news-bottom">
+                <h1 class="m-3">
+                    <% if(lang === 'en') { %>
+                    <%= news.title_en %>
+                    <% } else if(lang === 'vi') { %>
+                    <%= news.title_vi %>
+                    <% } else if(lang === 'cn') { %>
+                    <%= news.title_cn %>
+                    <% } else { %>
+                    <%= news.title_en %>
+                    <% } %>
+                </h1>
+                <div class="col-md-8 main-big">
+                    <img src="/upload/<%= news.image %>" alt="news-bg" width="100%" class="mb-3">
+                    <div class="news-desc">
+                        <% if(lang === 'en') { %>
+                        <%- news.content_en %>
+                        <% } else if(lang === 'vi') { %>
+                        <%- news.content_vi %>
+                        <% } else if(lang === 'cn') { %>
+                        <%- news.content_cn %>
+                        <% } else { %>
+                        <%- news.content_en %>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-4 brokers">
+                    <div class="aside box-shadow">
+                        <div class="content">
+                            <h2 data-toc-skip="" class="title-right">
+                                <%= __('Danh sách sàn ngoại hối') %>
+                            </h2>
+                            <div class="top-broker bg-white">
+                                <ul>
+                                    <li class="item-broker-wrap">
+                                        <a href="#">
+                                            <div class="item-broker">
+                                                <div class="item-borker-image">
+                                                    <img src="https://res.cloudinary.com/vgf/image/upload/v1592366205/dark-background_h5ur4b.png"
+                                                        alt="BTF Prime">
+                                                </div>
+                                                <div class="item-content">
+                                                    <h3 class="broker-name">BTF Prime</h3>
+                                                    <p class="broker-info">10-15 <%= __('năm') %></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../../../partials/footer') %>
+    </footer>
+</body>
+
+</html>

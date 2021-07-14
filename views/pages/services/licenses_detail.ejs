@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('../../partials/head') %>
+    <link rel="stylesheet" href="/css/partials/list-sidebar.css">
+    <link rel="stylesheet" href="/css/pages/education_overview.css">
+    <link rel="stylesheet" href="/css/pages/linceses.css">
+</head>
+
+<body>
+    <header>
+        <%- include ('../../partials/header') %>
+    </header>
+    <main>
+        <div class="edu-overview-top text-center">
+            <div class="edu-overview-top-content">
+                <h1 class="text-white">
+                    <% if(lang === 'cn') { %>
+                    <%- data.title_cn %>
+                    <% } else if(lang === 'vi') { %>
+                    <%- data.title_vi %>
+                    <% } else { %>
+                    <%- data.title_en %>
+                    <% } %>
+                    <span style="color: rgb(66, 165, 246);">——</span>
+                    <% if(lang !== 'en') { %>
+                    <p><%- data.title_en %></p>
+                    <% } %>
+                <a href="/contact" class="btn btn-success btn-lg mb-3">CONTACT US</a>
+            </div>
+        </div>
+        <div class="edu-overview-navbar">
+            <div class="menu-item <%= data.license_type === '1' ? 'active' : '' %>">
+                <a href="/services/vgf/licenses/1"><%= __('区块链牌照申请') %></a>
+            </div>
+            <div class="menu-item <%= data.license_type === '2' ? 'active' : '' %>">
+                <a href="/services/vgf/licenses/2"><%= __('金融牌照申请') %></a>
+            </div>
+            <div class="menu-item <%= data.license_type === '3' ? 'active' : '' %>">
+                <a href="/services/vgf/licenses/3"><%= __('监管查询') %></a>
+            </div>
+        </div>
+        <div class="container wrap-licenses mt-4 mb-4">
+            <% if(lang === 'en' & data.content_en !== '') { %>
+            <%- data.content_en %>
+            <% } else if(lang === 'vi' & data.content_vi !== '') { %>
+            <%- data.content_vi %>
+            <% } else { %>
+            <%- data.content_cn %>
+            <% } %>
+            
+        </div>
+    </main>
+    <footer>
+        <%- include ('../../partials/footer') %>
+    </footer>
+</body>
+
+</html>
