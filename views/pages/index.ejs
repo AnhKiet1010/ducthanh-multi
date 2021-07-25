@@ -1,26 +1,161 @@
 <!DOCTYPE html>
 <html ⚡ lang="vn">
-  <head>
-    <%- include ('../partials/head') %>
-    <link rel="stylesheet" href="/css/index.css" />
-  </head>
 
-  <body>
-    <!-- Navbar -->
-    <div class="wrapper">
-      <div class="header">
-        <!-- Navbar Start -->
-        <%- include ('../partials/header') %>
+<head>
+  <%- include ('../partials/head') %>
+    <link rel="stylesheet" href="/css/index.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="wrapper">
+    <div class="header">
+      <!-- Navbar Start -->
+      <%- include ('../partials/header') %>
         <!-- Navbar End -->
+    </div>
+    <div class="content">
+      <section>
+        <video src="/video/ducthanh.mp4" autoplay="autoplay" muted="muted" loop="loop"></video>
+      </section>
+      <div class="bg">
+        <img src="/img/bg-white-up.png" alt="dt-bg" class="w-full">
       </div>
-      <div class="content">
-        <div class="head-video">
-          <video src="/video/ducthanh.mp4" autoplay="autoplay" muted="muted" loop="loop"></video>
+      <section class="bg-white pt-10 relative -mt-1">
+        <div class="sec_top wow fadeInUp">
+          <div class="text-5xl text-center font-bold mb-5 italic text-gray-400">Let's go</div>
+          <div class="text-center italic w-1/2 m-auto text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vivamus lacinia odio vitae vestibulum vestibulum. </div>
         </div>
+        <div class="grid grid-cols-3 gap-10 mt-20 mx-20">
+          <div class="flex flex-col z-20 wow fadeInUp" data-wow-duration="2s">
+            <div><img src="/img/dt-thumb-1.jpg" alt="dt-thumb" class="w-full object-fit" /></div>
+            <div class="bg-gray-400 text-white px-5 py-10">
+              <div class="text-2xl uppercase mb-4">
+                <%= __('Image') %>
+              </div>
+              <div class="">Lorem ipsum dolor sit amet,
+                consectetur adipisicing...
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col z-20 wow fadeInUp" data-wow-duration="2.2s">
+            <div><img src="/img/dt-thumb-2.jpg" alt="dt-thumb" class="w-full object-fit" /></div>
+            <div class="bg-gray-400 text-white px-5 py-10">
+              <div class="text-2xl uppercase mb-4">
+                <%= __('Video') %>
+              </div>
+              <div class="">Lorem ipsum dolor sit amet,
+                consectetur adipisicing...
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col z-20 wow fadeInUp" data-wow-duration="2.4s">
+            <div><img src="/img/dt-thumb-3.jpg" alt="dt-thumb" class="w-full object-fit" /></div>
+            <div class="bg-gray-400 text-white px-5 py-10">
+              <div class="text-2xl uppercase mb-4">
+                <%= __('3D') %>
+              </div>
+              <div class="">Lorem ipsum dolor sit amet,
+                consectetur adipisicing...
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex justify-center mt-8 relative">
+          <a href="/" class="min-w-20 mb-72 bg-black text-white rounded-3xl py-4 px-8 uppercase tracking-widest">
+            <%= __('Show More') %>
+          </a>
+          <div class="bg-shadow absolute bottom-0 left-0 z-10">
+            <img src="/img/shadow-left.png" alt="dt-shadow">
+          </div>
+        </div>
+        <div class="w-full flex">
+          <div class="w-1/2">
+            <img src="/img/dt-thumb-4.png" alt="dt-thumb" class="w-full h-full object-fit wow fadeInUp" data-wow-duration="1s">
+          </div>
+          <div class="bg-gray-400 w-1/2 flex flex-col justify-center p-20">
+            <div class="text-3xl font-bold uppercase text-white">lĩnh vực hoạt động</div>
+            <div class="text-xl my-20">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+              euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+            <div>
+              <a href="/" class="min-w-20 mb-72 bg-black text-white rounded-3xl py-4 px-8 uppercase tracking-widest">
+                <%= __('Show More') %>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex flex-row-reverse">
+          <div class="w-1/2">
+            <img src="/img/dt-thumb-5.png" alt="dt-thumb" class="w-full h-full object-fit wow fadeInUp" data-wow-duration="1s">
+          </div>
+          <div class="bg-gray-400 w-1/2 flex flex-col justify-center p-20">
+            <div class="text-3xl font-bold uppercase text-white">truyền thông <br></br>& dịch vụ</div>
+            <div class="text-xl my-20">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
+              euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+            <div>
+              <a href="/" class="min-w-20 mb-72 bg-black text-white rounded-3xl py-4 px-8 uppercase tracking-widest">
+                <%= __('Show More') %>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="bg">
+        <img src="/img/bg-white-down.png" alt="dt-bg" class="w-full">
+      </div>
+      <section style="background-image: url(/img/wall.png);" class="bg-center bg-no-repeat bg-cover pt-40 pb-32 -mt-10">
+        <div class="w-full flex flex-col justify-center">
+          <div class="text-white text-center text-lg max-w-lg m-auto mb-20">Với sự phát triển nhanh chóng của hình thức
+            giải trí kỹ thuật số, quảng cáo – truyền thông – mỹ thuật đa
+            phương tiện DUCTHANH MULTIMEDIA với thế hệ trẻ, tư duy trẻ và luôn đầy nhiệt huyết, sẽ đem lại sự hài lòng
+            nhất cho quý khách hàng.</div>
+          <div class="text-4xl font-bold text-white uppercase text-center mb-32">duc thanh multimedia</div>
+        </div>
+      </section>
+      <div class="bg -mt-14">
+        <img src="/img/bg-white.png" alt="dt-bg" class="w-full">
+      </div>
+      <section style="background-image: url(/img/motivation.jpg);" class="bg-bottom bg-no-repeat bg-cover pt-40 pb-32 -mt-20">
+        <div class="w-full flex flex-col items-end p-20">
+          <div class="text-black font-black text-center text-5xl max-w-lg uppercase mb-10 text-sha-md">bức phá</div>
+          <div class="text-5xl font-black text-white uppercase text-center uppercase mb-10 text-sha-md">trong mọi</div>
+          <div class="text-5xl font-black text-white uppercase text-center mb-32 uppercase text-sha-md">thời đại</div>
+        </div>
+      </section>
+      <div class="bg -mt-20">
+        <img src="/img/bg-white-up.png" alt="dt-bg" class="w-full">
+      </div>
+      <section class="bg-white relative -mb-1 pt-20">
+        <div class="sec_top">
+          <div class="text-4xl text-center font-bold mb-5 text-gray-600 uppercase">khách hàng của chúng tôi</div>
+        </div>
+        <div class="w-full flex justify-center mt-8 relative h-72">
+          <div class="bg-shadow absolute -bottom-48 right-0 z-10">
+            <img src="/img/shadow-right.png" alt="dt-shadow">
+          </div>
+        </div>
+      </section>
+      <div class="bg">
+        <img src="/img/bg-white-down.png" alt="dt-bg" class="w-full">
+      </div>
+      <section style="background-image: url(/img/wall.png);" class="bg-center bg-no-repeat bg-cover pt-48 pb-72 pb-32 -mt-20">
+        <div class="w-full flex flex-col justify-center">
+          <div class="text-white text-center text-xl font-bold italic max-w-lg m-auto mb-20">Hãy đặt câu hỏi cho chúng tôi!</div>
+          <div class="flex m-auto">
+            <input type="text" class="w-lg rounded-3xl border-none px-10 py-2 appearance-none focus:outline-none" placeholder="your email">
+            <button class="bg-black text-white rounded-3xl border-none px-10 py-2 appearance-none -ml-20">subcribe</button>
+          </div>
+        </div>
+      </section>
+      <div class="bg -mt-20">
+        <img src="/img/bg-white.png" alt="dt-bg" class="w-full">
       </div>
     </div>
+  </div>
 
-    <!-- Footer-->
-    <%- include ('../partials/footer') %>
-  </body>
+  <!-- Footer-->
+  <%- include ('../partials/footer') %>
+</body>
+
 </html>
