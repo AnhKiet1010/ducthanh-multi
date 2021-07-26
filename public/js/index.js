@@ -1,4 +1,30 @@
 $(function () {
+  $(window).scroll(function () {
+    var height = $(window).scrollTop();
+
+    if ($(window).width() > 1024) {
+      if (height === 0) {
+        $('nav').show();
+      } else if (height > 95) {
+        $('nav').hide();
+      }
+    }
+
+    if (height <= 1000) {
+      $('#back-top').addClass('fadeOutRight');
+      $('#back-top').removeClass('fadeInRight');
+    } else if (height > 1000) {
+      $('#back-top').removeClass('hidden');
+      $('#back-top').addClass('fadeInRight');
+      $('#back-top').removeClass('fadeOutRight');
+    }
+
+  });
+
+  $("#back-top").click(function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  })
+
   $("#lang-btn").on("click", function () {
     $(".lang").toggleClass("hidden");
   });
@@ -11,8 +37,8 @@ $(function () {
 
   // MENU CLICK EVENT
   $("#menu-btn").on("click", function () {
-      $(".menu-list").toggleClass("hidden");
-      $(this).toggleClass("hidden");
+    $(".menu-list").toggleClass("hidden");
+    $(this).toggleClass("hidden");
   });
 
   $("#close-btn").on("click", function () {
