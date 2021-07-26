@@ -2,17 +2,17 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require("body-parser");
 const i18n = require("i18n");
 const cookieParser = require('cookie-parser');
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // Config Internationalization
 app.use(i18n.init);
@@ -107,6 +107,6 @@ app.use('/policy', policyRouter);
 app.use('/admin', adminRouter);
 
 // Config Server Port
-app.listen(process.env.PORT || 3000, function () {
-    console.log('Server started!!!');
+app.listen(PORT, function () {
+    console.log(`Server started on ${PORT}!!!`);
 });
