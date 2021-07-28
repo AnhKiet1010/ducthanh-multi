@@ -3,36 +3,91 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/images/favicon.jpg" sizes="36x16">
+    <link rel="icon" href="/img/favicon.ico" sizes="36x16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/registerForm.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" media="all" rel="stylesheet" />
     <title>Register Form || Admin</title>
 </head>
 
 <body>
-    <div class="wrapper fadeInDown">
-        <div id="formContent">
-            <div class="fadeIn first">
-                <img src="/images/vgf-logo-white.png" id="icon" alt="Company-Icon" />
-            </div>
-            <% if(error !== undefined) { %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
-            </div>
-            <% } %>
-            <form class="mt-3" action="/admin/register" method="POST">
-                <input type="text" class="fadeIn second" name="employeeId" placeholder="Employee Id" required>
-                <input type="text" id="login" class="fadeIn third" name="username" placeholder="Username" required>
-                <input type="password" id="password" class="fadeIn fourth" name="password" placeholder="Password"
-                    required>
-                <input type="password" id="password" class="fadeIn fiveth" name="confirmPassword"
-                    placeholder="Confirm Password" required>
-                <input type="submit" class="fadeIn sixth" value="Create">
+    <div class="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+        style="background-image: url(/img/bg-admin.jpg);">
+        <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+        <div class="mt-2 items-center z-10">
+            <form action="/admin/register" method="POST"
+                class="p-14 bg-white max-w-sm mx-auto rounded-xl shadow-xl overflow-hidden p-6 space-y-10">
+                <h2 class="text-4xl font-bold text-center text-black uppercase">đăng ký</h2>
+                <% if(error) { %>
+                    <div class="bg-red-100 border border-red-400 text-red-700 pl-4 pr-8 py-3 rounded relative"
+                        role="alert">
+                        <strong class="font-bold">
+                            <%- error.title %>
+                        </strong>
+                        <span class="block sm:inline">
+                            <%- error.text %>
+                        </span>
+                        <!-- <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+                            <svg class="fill-current h-6 w-6 text-red-500" role="button"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <title>Close</title>
+                                <path
+                                    d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                            </svg>
+                        </span> -->
+                    </div>
+                    <% } %>
+                        <div class="f-outline px-2 relative border  <%= error && error.field === 'username' ? 'border-red-400' : '' %> rounded-lg focus-within:border-indigo-500">
+                            <input type="text" name="username" placeholder=" " id="username"
+                                value="<%= error ? value.username : '' %>"
+                                class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent"
+                                autocomplete="off" />
+                            <label for="username"
+                                class="absolute ml-5 cursor-text top-0 text-lg text-gray-700 bg-white mt-2 px-2 -z-1 duration-300 origin-0">Username</label>
+                        </div>
+                        <div
+                            class="f-outline px-2 relative border <%= error && error.field === 'password' ? 'border-red-400' : '' %> rounded-lg focus-within:border-indigo-500">
+                            <input type="password" name="password" placeholder=" " id="password"
+                                value="<%= error ? value.password : '' %>"
+                                class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent"
+                                autocomplete="off" />
+                            <label for="password"
+                                class="absolute ml-5 cursor-text top-0 text-lg text-gray-700 bg-white mt-2 px-2 -z-1 duration-300 origin-0">Password</label>
+                        </div>
+                        <div
+                            class="f-outline px-2 relative border <%= error && error.field === 'password' ? 'border-red-400' : '' %> rounded-lg focus-within:border-indigo-500">
+                            <input type="password" name="confirmPassword" placeholder=" " id="confirm-password"
+                                value="<%= error ? value.confirmPassword : '' %>"
+                                class="block p-2 w-full text-lg appearance-none focus:outline-none bg-transparent"
+                                autocomplete="off" />
+                            <label for="confirm-password"
+                                class="absolute ml-5 cursor-text top-0 text-lg text-gray-700 bg-white mt-2 px-2 -z-1 duration-300 origin-0">Confirm
+                                Password</label>
+                        </div>
+                        <div class="block mt-2">
+                            <label for="" class="flex items-center">
+                                <input type="checkbox"
+                                    class="ml-2 rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                                </input>
+                                <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                            </label>
+                        </div>
+                        <div class="flex items-center justify-center mt-4">
+                            <button type="submit"
+                                class="w-full py-2 font-semibold cursor-pointer text-center focus:outline-none transition hover:shadow-lg shadow hover:bg-indigo-700 rounded-full text-white bg-indigo-600 ">
+                                Đăng Ký
+                            </button>
+                        </div>
             </form>
         </div>
     </div>
+
+
+    <style>
+        .f-outline input:focus-within~label,
+        .f-outline input:not(:placeholder-shown)~label {
+            transform: translateY(-1.5rem) translatex(-1rem) scaleX(0.80) scaleY(0.80);
+        }
+    </style>
 </body>
 
 </html>

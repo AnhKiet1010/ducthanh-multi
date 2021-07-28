@@ -3,18 +3,10 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-const News = require('../models/news');
 const Admin = require('../models/admin');
-const Menu = require('../models/menu');
-const Sub_menu_lv1 = require('../models/sub_menu_lv1');
-const Sub_menu_lv2 = require('../models/sub_menu_lv2');
-const Posts = require('../models/post');
-const Question_type = require('../models/question_type');
-const Question = require('../models/question');
-const License = require('../models/licenses');
 
 module.exports.admin = function (req, res) {
-    res.redirect('/admin/news/news_list/1');
+    res.send('admin hello');
 }
 
 module.exports.login = function (req, res) {
@@ -26,46 +18,56 @@ module.exports.register = function (req, res) {
 }
 
 module.exports.postLogin = async function (req, res) {
-    const name = req.body.username;
+    console.log('BODY', req.body);
+    const username = req.body.username;
     const password = req.body.password;
 
 
-    const data = await Admin.findOne({ name }).exec();
+    const data = await Admin.findOne({ username }).exec();
+    console.log('data', data);
     if (data === null) {
-        res.render('./admin/login', { error: "User does not exist!!!" });
+        res.render('./admin/login', {
+            error: {field: 'username', title: "Username", text: "không tồn tại!" },
+            value: req.body
+         });
     } else {
         bcrypt.compare(password, data.password, function (err, result) {
-            if (err) {
-                return res.send(err);
+            if (err || !result) {
+                console.log('err', err);
+                res.render('./admin/login', {
+                    error: {field: 'password', title: "Password", text: "không đúng!" },
+                    value: req.body
+                });
             } else {
-                if (result) {
-                    const token = jwt.sign({ name: "Kiet" }, process.env.SECRET_KEY, { algorithm: "HS256", expiresIn: "3h" });
-                    res.cookie('access_token', token);
-                    res.cookie('admin_id', data.employeeId);
-                    res.redirect('/admin');
-                } else {
-                    return res.send('/error');
-                }
+                const token = jwt.sign({ _id: data._id }, process.env.SECRET_KEY, { algorithm: "HS256", expiresIn: "3h" });
+                res.cookie('access_token', token);
+                res.redirect('/admin');
             }
         });
     }
 }
 
 module.exports.postRegister = async function (req, res) {
-    const employeeId = req.body.employeeId;
-    const name = req.body.username;
+    console.log('BODY',req.body);
+    const username = req.body.username;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
     if (password !== confirmPassword) {
-        res.render('./admin/register', { error: 'Password is wrong!!!' });
+        res.render('./admin/register', { 
+            error: {field: 'password', title: "Password", text: "Mật khẩu không trùng khớp!" },
+            value: req.body
+        });
         return;
     }
 
-    const data = await Admin.findOne({ name }).exec();
+    const data = await Admin.findOne({ username }).exec();
 
     if (data) {
-        res.render('./admin/register', { error: 'User already exists!!!' });
+        res.render('./admin/register', {
+            error: {field: 'username', title: "Username", text: "bị trùng!" },
+            value: req.body
+        });
         return;
     } else {
         bcrypt.hash(password, saltRounds, async function (err, hash) {
@@ -73,8 +75,7 @@ module.exports.postRegister = async function (req, res) {
                 return res.send(err);
             } else {
                 let admin = new Admin({
-                    employeeId,
-                    name,
+                    username,
                     password: hash
                 });
 
@@ -82,7 +83,7 @@ module.exports.postRegister = async function (req, res) {
                     if (err) {
                         return res.send(err);
                     } else {
-                        res.send('saved!');
+                        res.redirect('/admin');
                     }
                 });
             }

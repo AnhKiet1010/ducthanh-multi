@@ -34,15 +34,7 @@ mongoose.connect(process.env.MONGO_URI,
         }
     });
 
-const servicesRouter = require('./routes/services.route');
-const supportRouter = require('./routes/support.route');
-const partnershipRouter = require('./routes/partnership.route');
-const mallRouter = require('./routes/mall.route');
 const adminRouter = require('./routes/admin.route');
-const newtRouter = require('./routes/news.route');
-const aboutRouter = require('./routes/about.route');
-const contactRouter = require('./routes/contact.route');
-const policyRouter = require('./routes/policy.route');
 /*
     Default Page
 */
@@ -62,45 +54,9 @@ app.use('/change-lang/:lang', (req, res) => {
 /*
     Eror Page
 */
-// app.get('/:error', function (req, res) {
+// app.get('/', function (req, res) {
 //     res.render('./pages/404');
-// })
-/*
-    Service Pages
-*/
-app.use('/services', servicesRouter);
-/*
-    Support Page
-*/
-app.use('/support', supportRouter);
-/*
-    Promotion Page
-*/
-// app.use('/promotion', promotionRouter);
-/*
-    Partnership Page
-*/
-app.use('/partnership', partnershipRouter);
-/*
-    Shop Page
-*/
-app.use('/mall', mallRouter);
-/*
-    Search NEWs
-*/
-app.use('/news', newtRouter);
-/*
-    About
-*/
-app.use('/about', aboutRouter);
-/*
-    Contact
-*/
-app.use('/contact', contactRouter);
-/*
-    Policy
-*/
-app.use('/policy', policyRouter);
+// });
 /*
     FOR ADMIN
 */

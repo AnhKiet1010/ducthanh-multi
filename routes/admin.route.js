@@ -31,27 +31,17 @@ const upload = multer({
         }
     }
 });
-router.get('/', requireAuth.requireAuth, adminController.admin);
+router.get('/', adminController.admin);
 
 router.get('/login', adminController.login);
 
-router.get('/register', requireAuth.requireAuth, adminController.register);
+router.get('/register', adminController.register);
 
 router.post('/login', adminController.postLogin);
 
 router.post('/register', adminController.postRegister);
 
 router.post('/logout', adminController.logout);
-
-// router.get('/menu', requireAuth.requireAuth, adminController.menu);
-
-// router.post('/menu', adminController.postMenu);
-
-// router.post('/sub_menu_lv1', adminController.sub_menu_lv1);
-
-// router.post('/sub_menu_lv2', adminController.sub_menu_lv2);
-
-// router.get('/menuData', requireAuth.requireAuth, adminController.menuData);
 
 /* 
             NEWS
