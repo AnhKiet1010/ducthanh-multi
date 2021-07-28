@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 
 const adminController = require('../controllers/admin.controller');
+const productController = require('../controllers/product.controller');
 const requireAuth = require('../middlewares/auth.controller');
 
 // UPLOAD IMAGE
@@ -41,65 +42,21 @@ router.post('/login', adminController.postLogin);
 
 router.post('/register', adminController.postRegister);
 
-router.post('/logout', adminController.logout);
+router.get('/logout', adminController.logout);
 
 /* 
-            NEWS
+            PRODUCTS
 */
-router.get('/news/add_news', requireAuth.requireAuth, adminController.getNewsForm);
+router.get('/product/add', requireAuth.requireAuth, productController.getAdd);
 
-router.post("/news/postNewsForm", upload.single('image'), adminController.postNewsForm);
+router.post('/product/add', requireAuth.requireAuth, productController.postAdd);
 
-router.get("/news/edit/:id", requireAuth.requireAuth, adminController.getEditForm);
+router.get("/product/edit/:id", requireAuth.requireAuth, productController.getEdit);
 
-router.post("/news/edit/:id", upload.single('image'), adminController.postEditForm);
+router.post("/product/edit/:id", upload.single('image'), productController.postEdit);
 
-router.get('/news/news_list/:page', requireAuth.requireAuth, adminController.getNewsList);
+router.get('/product/delete/:id', requireAuth.requireAuth, productController.delete);
 
-router.get('/news/delete/:id', requireAuth.requireAuth, adminController.deleteNews);
-
-/* 
-            POSTS
-*/
-router.get('/posts/add_posts', requireAuth.requireAuth, adminController.getPostsForm);
-
-router.post('/posts/add_posts', upload.single('image'), adminController.postPostsForm);
-
-router.get('/posts/posts_list/:page', adminController.getPostsList);
-
-router.get("/posts/edit/:id", requireAuth.requireAuth, adminController.getEditPostsForm);
-
-router.post("/posts/edit/:id", upload.single('image'), adminController.postEditPostsForm);
-
-router.get('/posts/delete/:id', adminController.deletePosts);
-
-/* 
-            QUESTION
-*/
-
-router.get('/list_question/:page', requireAuth.requireAuth, adminController.getListQuestion);
-
-router.post('/add_question_type', adminController.add_question_type);
-
-router.get('/add_question', requireAuth.requireAuth, adminController.getQuestionForm);
-
-router.post('/add_question', adminController.postAddQuestion);
-
-router.get("/question/edit/:id", requireAuth.requireAuth, adminController.getEditQuestionForm);
-
-router.get('/question/delete/:id', adminController.deleteQuestion);
-
-router.get('/license', adminController.licenseForm);
-
-router.post('/license/postLicenseForm', upload.single('image'), adminController.postLicenseForm);
-
-router.get('/license/get_list_license', adminController.getListLicenses);
-
-router.get('/license/edit/:id', adminController.getEditLicenseForm);
-
-router.post('/license/edit/:id', adminController.getPostLicenseForm);
-
-router.get('/license/delete/:id', adminController.deleteLicense);
 
 
 

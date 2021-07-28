@@ -52,12 +52,6 @@ app.use('/change-lang/:lang', (req, res) => {
     res.redirect('back');
 });
 /*
-    Eror Page
-*/
-// app.get('/', function (req, res) {
-//     res.render('./pages/404');
-// });
-/*
     FOR ADMIN
 */
 app.use('/admin', adminRouter);

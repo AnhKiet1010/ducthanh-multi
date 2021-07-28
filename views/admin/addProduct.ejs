@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ('./partials/head') %>
+</head>
+
+<body class="antialiased font-sans bg-gray-200">
+    <%- include ('./partials/header') %>
+        <div class="container mx-auto mt-5 px-4 sm:px-8">
+            <div>
+                <h2 class="text-2xl font-semibold leading-tight">Thêm Sản Phẩm</h2>
+            </div>
+            <div class="mt-5 md:col-span-2">
+                <form action="#" method="POST">
+                    <div class="shadow sm:rounded-md sm:overflow-hidden">
+                        <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+
+                            <div class="max-w-lg">
+                                <label for="category" class="block text-md font-medium text-gray-700">
+                                    Danh Mục
+                                </label>
+                                <div class="mt-2 relative">
+                                    <select id="category" name="categoryId"
+                                        class="w-full border bg-white appearance-none px-3 py-2 outline-none border rounded-lg text-gray-700 focus:outline-none focus:border-green-500">
+                                        <option class="hidden text-sm text-gray-400">Chọn danh mục...</option>
+                                        <% listCategory=data.listCategory.map(function(elem) { return '<option value="'
+                                            + elem._id + '">' + elem.name + '</option>' ; }) -%>
+                                            <%- listCategory.join(" | ") %>
+                                    </select>
+                                    <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-2
+                                                text-gray-700">
+                                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class=" max-w-lg">
+                            <label for="title" class="block text-md font-medium text-gray-700">
+                                Chủ Đề
+                            </label>
+                            <div class="mt-2">
+                                <input type='text' id="title" placeholder="Nhập chủ đề" name="title"
+                                    class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+                            </div>
+                        </div>
+
+                        <div class="max-w-lg">
+                            <label for="desc" class="block text-md font-medium text-gray-700">
+                                Mô Tả
+                            </label>
+                            <div class="mt-2">
+                                <textarea id="desc" name="desc" rows="3"
+                                    class="shadow-sm mt-1 block px-4 py-2 w-full border-gray-300 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500"
+                                    placeholder="Nhập mô tả..."></textarea>
+                            </div>
+                        </div>
+                        <div class="max-w-lg">
+                            <label for="customer" class="block text-md font-medium text-gray-700">
+                                Khách Hàng
+                            </label>
+                            <div class="mt-2">
+                                <input type='text' id="customer" placeholder="Nhập tên khách hàng" name="customer"
+                                    class="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:border-green-500" />
+                            </div>
+                        </div>
+                        <div class="max-w-lg">
+                            <label class="block text-md font-medium text-gray-700">
+                                Url Sản Phẩm
+                            </label>
+                            <div class="mt-2">
+                                <div class="customer_records w-full my-4 flex sm:flex-row flex-col">
+                                    <div class="flex flex-row items-center">
+                                        <div class="relative">
+                                            <select
+                                                class="appearance-none rounded-l-lg border rounded-r-none border-r-0 border-b block appearance-none w-full bg-white text-gray-700 py-2.5 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
+                                                <% listCategory=data.listCategory.map(function(elem) {
+                                                    return '<option value="' + elem._id + '">' + elem.name + '</option>'
+                                                    ; }) -%>
+                                                    <%- listCategory.join(" | ") %>
+
+                                                    </select>
+                                                    <div
+                                                        class=" pointer-events-none absolute inset-y-0 right-0 flex
+                                                        items-center px-2 text-gray-700">
+                                                        <svg class="fill-current h-4 w-4"
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                            <path
+                                                                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                                        </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block relative flex-1">
+                                    <input placeholder="Search"
+                                        class="appearance-none rounded-r-lg rounded-l sm:rounded-l-none border border-b block px-4 py-2 w-full bg-white focus:border-green-500  focus:outline-none" />
+                                </div>
+                                <!-- <div class="flex items-center ml-4">
+                                    <svg class="fill-current h-6 w-6 text-red-500" role="button"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <title>Xóa</title>
+                                        <path
+                                            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                    </svg>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="customer_records_dynamic"></div>
+                        <div
+                            class="extra-fields-customer inline-flex justify-center mt-4 py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                            Thêm Ảnh
+                        </div>
+                    </div>
+            </div>
+            <div class="px-4 py-3 bg-gray-50 text-center sm:px-6">
+                <button type="submit"
+                    class="inline-flex justify-center py-2 px-8 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Lưu
+                </button>
+            </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        <%- include ('./partials/footer') %>
+</body>
+
+<script>
+    $('.extra-fields-customer').click(function () {
+        $('.customer_records').clone().appendTo('.customer_records_dynamic');
+        $('.customer_records_dynamic .customer_records').addClass('single remove');
+        $('.remove').css("display", 'flex');
+        $('.remove').css("margin-top", '16px');
+        $('.single .extra-fields-customer').remove();
+        $('.single').append(`<div class="flex items-center ml-4 remove-field btn-remove-customer">
+                                    <svg class="fill-current h-6 w-6 text-red-500" role="button"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <title>Xóa</title>
+                                        <path
+                                            d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+                                    </svg>
+                                </div>`);
+        $('.customer_records_dynamic > .single').attr("class", "remove");
+
+        $('.customer_records_dynamic input').each(function () {
+            var count = 0;
+            var fieldname = $(this).attr("name");
+            $(this).attr('name', fieldname + count);
+            count++;
+        });
+
+    });
+
+    $(document).on('click', '.remove-field', function (e) {
+        $(this).parent('.remove').remove();
+        e.preventDefault();
+    });
+</script>
+
+</html>

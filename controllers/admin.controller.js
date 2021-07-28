@@ -2,19 +2,30 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const Category = require('../models/category');
+const Product = require('../models/product');
 
 const Admin = require('../models/admin');
 
-module.exports.admin = function (req, res) {
-    res.send('admin hello');
+module.exports.admin = async function (req, res) {
+    const listCategory = await Category.find({}).exec();
+    const listProduct = await Product.find({}).limit(5).exec();
+
+    res.render("./admin", { 
+        title: "Trang Chủ || Admin",
+        data: {
+            listCategory,
+            listProduct
+        }
+    });
 }
 
 module.exports.login = function (req, res) {
-    res.render('./admin/login', { title: "Login Form || Admin", error: undefined });
+    res.render('./admin/login', { title: "Đăng Nhập || Admin", error: undefined });
 }
 
 module.exports.register = function (req, res) {
-    res.render('./admin/register', { title: "Register Form || Admin", error: undefined });
+    res.render('./admin/register', { title: "Đăng Ký || Admin", error: undefined });
 }
 
 module.exports.postLogin = async function (req, res) {
@@ -93,8 +104,7 @@ module.exports.postRegister = async function (req, res) {
 
 module.exports.logout = function (req, res) {
     res.clearCookie('access_token');
-    res.clearCookie('admin_id');
-    res.redirect('/');
+    res.redirect('/admin/login');
 }
 
 
