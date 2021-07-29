@@ -6,7 +6,7 @@ const product = new Schema({
     title: String,
     desc: String,
     featured: String,
-    link: Array,
+    links: Array,
     customer: String,
     createdAt: String
 });

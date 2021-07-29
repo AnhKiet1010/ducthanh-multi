@@ -8,14 +8,42 @@ const Product = require('../models/product');
 const Admin = require('../models/admin');
 
 module.exports.admin = async function (req, res) {
-    const listCategory = await Category.find({}).exec();
-    const listProduct = await Product.find({}).limit(5).exec();
+    let { page, perPage, category, keyword } = req.query;
+    if (!page) {
+        page = 0;
+    }
 
-    res.render("./admin", { 
+    if (!perPage) {
+        perPage = 5;
+    }
+
+    if (!category) {
+        category = "";
+    }
+
+    if (!keyword) {
+        keyword = "";
+    }
+
+    const listCategory = await Category.find({}).exec();
+    const listProduct = await Product.find({ $and: [{ categoryId: { $regex: '.*' + category + '.*' } }, { title: { $regex: '.*' + keyword + '.*' } }] }).skip(parseInt(page) !== 0 ? (parseInt(perPage) * parseInt(page)) : 0).limit(parseInt(perPage)).sort({ _id: -1 }).exec();
+    const totalProduct = await Product.countDocuments({$and: [{categoryId: {$regex: '.*' + category + '.*'}}, {title: {$regex: '.*' + keyword + '.*'}}]}).exec();
+    console.log('listCategory', listCategory);
+
+
+    const totalPage = Math.ceil(parseInt(totalProduct) / parseInt(perPage));
+
+    res.render("./admin", {
         title: "Trang Chủ || Admin",
         data: {
             listCategory,
-            listProduct
+            listProduct,
+            totalProduct,
+            category,
+            keyword,
+            page,
+            perPage,
+            totalPage
         }
     });
 }
@@ -29,24 +57,23 @@ module.exports.register = function (req, res) {
 }
 
 module.exports.postLogin = async function (req, res) {
-    console.log('BODY', req.body);
     const username = req.body.username;
     const password = req.body.password;
 
 
     const data = await Admin.findOne({ username }).exec();
-    console.log('data', data);
+
     if (data === null) {
         res.render('./admin/login', {
-            error: {field: 'username', title: "Username", text: "không tồn tại!" },
+            error: { field: 'username', title: "Username", text: "không tồn tại!" },
             value: req.body
-         });
+        });
     } else {
         bcrypt.compare(password, data.password, function (err, result) {
             if (err || !result) {
                 console.log('err', err);
                 res.render('./admin/login', {
-                    error: {field: 'password', title: "Password", text: "không đúng!" },
+                    error: { field: 'password', title: "Password", text: "không đúng!" },
                     value: req.body
                 });
             } else {
@@ -59,14 +86,13 @@ module.exports.postLogin = async function (req, res) {
 }
 
 module.exports.postRegister = async function (req, res) {
-    console.log('BODY',req.body);
     const username = req.body.username;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword;
 
     if (password !== confirmPassword) {
-        res.render('./admin/register', { 
-            error: {field: 'password', title: "Password", text: "Mật khẩu không trùng khớp!" },
+        res.render('./admin/register', {
+            error: { field: 'password', title: "Password", text: "Mật khẩu không trùng khớp!" },
             value: req.body
         });
         return;
@@ -76,7 +102,7 @@ module.exports.postRegister = async function (req, res) {
 
     if (data) {
         res.render('./admin/register', {
-            error: {field: 'username', title: "Username", text: "bị trùng!" },
+            error: { field: 'username', title: "Username", text: "bị trùng!" },
             value: req.body
         });
         return;
