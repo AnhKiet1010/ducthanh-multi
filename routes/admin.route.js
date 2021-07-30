@@ -22,15 +22,17 @@ router.get('/logout', adminController.logout);
 /* 
             PRODUCTS
 */
-router.get('/product/add', requireAuth.requireAuth, productController.getAdd);
+router.get('/product/add', productController.getAdd);
 
 router.post('/product/add', upload.array('files', 12), productController.postAdd);
 
-router.get("/product/edit/:id", requireAuth.requireAuth, productController.getEdit);
+router.get('/product/detail/:id', productController.detail);
+
+router.get("/product/edit/:id", productController.getEdit);
 
 router.post("/product/edit/:id", productController.postEdit);
 
-router.get('/product/delete/:id', requireAuth.requireAuth, productController.delete);
+router.get('/product/delete/:id', productController.delete);
 
 
 

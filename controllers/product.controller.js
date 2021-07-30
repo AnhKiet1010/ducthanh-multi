@@ -77,6 +77,18 @@ module.exports.postAdd = async function (req, res) {
     });
 }
 
+module.exports.detail = async function (req,res) {
+    const { id } = req.params;
+    const product = await Product.findOne({_id: id}).exec();
+
+    res.render('./admin/detailProduct', {
+        title: product.title,
+        data: {
+            product
+        }
+    });
+}
+
 module.exports.getEdit = async function (req, res) {
 }
 

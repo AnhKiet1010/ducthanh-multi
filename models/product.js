@@ -8,7 +8,8 @@ const product = new Schema({
     featured: String,
     links: Array,
     customer: String,
-    createdAt: String
+    createdAt: String,
+    ChangedAt: String
 });
 
 module.exports = mongoose.model("product", product);

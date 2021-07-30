@@ -28,7 +28,6 @@ module.exports.admin = async function (req, res) {
     const listCategory = await Category.find({}).exec();
     const listProduct = await Product.find({ $and: [{ categoryId: { $regex: '.*' + category + '.*' } }, { title: { $regex: '.*' + keyword + '.*' } }] }).skip(parseInt(page) !== 0 ? (parseInt(perPage) * parseInt(page)) : 0).limit(parseInt(perPage)).sort({ _id: -1 }).exec();
     const totalProduct = await Product.countDocuments({$and: [{categoryId: {$regex: '.*' + category + '.*'}}, {title: {$regex: '.*' + keyword + '.*'}}]}).exec();
-    console.log('listCategory', listCategory);
 
 
     const totalPage = Math.ceil(parseInt(totalProduct) / parseInt(perPage));
