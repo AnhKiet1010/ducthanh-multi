@@ -7,3 +7,7 @@
 .text-sha-md {
     text-shadow: 2px 0px 5px #000;
 }
+
+.bg-grey-custom {
+    background-color: #808080;
+}

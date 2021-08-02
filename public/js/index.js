@@ -37,12 +37,18 @@ $(function () {
 
   // MENU CLICK EVENT
   $("#menu-btn").on("click", function () {
-    $(".menu-list").toggleClass("hidden");
-    $(this).toggleClass("hidden");
+    $(this).hide();
+    $("#close-btn").show();
+    $('.menu-list').removeClass('hidden');
+    $(".menu-list").removeClass("slideOutLeft");
+    $(".menu-list").addClass("slideInLeft");
   });
 
   $("#close-btn").on("click", function () {
-    $(".menu-list").addClass("hidden");
-    $("#menu-btn").removeClass("hidden");
+    $(this).hide();
+    $("#menu-btn").show();
+    // $(".menu-list").removeClass("slideInLeft");
+    // $('.menu-list').addClass('hidden');
+    $(".menu-list").addClass("slideOutLeft");
   });
 });
